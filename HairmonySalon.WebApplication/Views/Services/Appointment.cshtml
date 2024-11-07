@@ -1,0 +1,215 @@
+﻿<html>
+<head>
+    <title>Harmony Salon Appointment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .back {
+            font-size: 16px;
+            color: #555;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            margin: 10px 0 30px 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .containers{
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            flex-grow: 1;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #info-card-main {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+
+        .continue-btn {
+            background-color: #555;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: auto; /* Đẩy nút này sang bên phải */
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+    </style>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:500,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+
+    <link rel="stylesheet" href="../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+
+    <link rel="stylesheet" href="../css/aos.css">
+
+    <link rel="stylesheet" href="../css/ionicons.min.css">
+
+    <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="../css/flaticon.css">
+    <link rel="stylesheet" href="../css/icomoon.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- END nav -->
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg-1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate pb-5 text-center">
+                    <h2 class="mb-0 bread">Appointment</h2>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-round-forward"></i></a></span> <span class="mr-2"><a href="blog.html">Blog <i class="ion-ios-arrow-forward"></i></a></span> <span>Appointment <i class="ion-ios-arrow-round-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="containers">
+        <a href="/services" class="back">← Back</a>
+        <div id="service-info">
+            <!-- Tên dịch vụ sẽ được hiển thị ở đây -->
+
+
+        </div>
+
+        <div class="form-group">
+            <label for="guests">Add Guests</label>
+            <select id="guests">
+                <option>Just me</option>
+                <option>Guest 1</option>
+                <option>Guest 2</option>
+            </select>
+        </div>
+
+        <div class="button-container">
+
+            <a class="button continue-btn" href="/services/selectstylist">Continue</a>
+        </div>
+
+    </section>
+
+    <script>
+        // Lấy thông tin dịch vụ từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceName = urlParams.get('service');
+
+        // Thông tin chi tiết về các dịch vụ
+        const serviceDetails = {
+            "Blow out": "45 phút - Giá: $50.00",
+            "Blow out (Long and Thick)": "1 giờ - Giá: $55.00",
+            // Thêm các dịch vụ khác nếu cần
+        };
+        // Hiển thị tên dịch vụ trong phần tử với id "service-info"
+                const serviceInfoDiv = document.getElementById('service-info');
+        if (serviceName && serviceDetails[serviceName]) {
+            serviceInfoDiv.innerHTML = `
+                        <h1>${serviceName}</h1>
+                        <p>${serviceDetails[serviceName]}</p>
+                    `;
+        } else {
+            serviceInfoDiv.innerHTML = `<p>Dịch vụ đang được chọn.</p>`;
+        }
+    </script>
+
+</body>
+</html>
