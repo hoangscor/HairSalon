@@ -1,0 +1,133 @@
+ # Bỏ qua các tệp tạm thời của Visual Studio, xây dựng kết quả và
+# # các tập tin được tạo ra bởi các tiện ích bổ sung phổ biến của Visual Studio.
+
+# Tệp tin dành riêng cho người dùng
+* .suo
+* .người dùng
+* .sln.docstates
+
+# Xây dựng kết quả
+
+[ Dd ] ebug /
+[ Rr ] giải phóng /
+x64 /
+[ Bb ] trong /
+[ Ồ ] bj /
+
+# Kết quả kiểm tra MSTest
+[ Tt ] là [ Rr ] kết quả * /
+[ Bb ] giao diện [ Ll ] og. *
+
+* _i.c
+* _p.c
+* _tôi.h
+* .ilk
+* .meta
+* .obj
+* .pch
+* .pdb
+* .pgc
+* .pgd
+* .rsp
+* .sbr
+* .tlb
+* .tli
+* .tlh
+* .tmp
+* .tmp_proj
+* .log
+* .vspscc
+* .vssscc
+.xây dựng
+* .pidb
+* .log
+* .svclog
+* .scc
+
+# Tệp bộ nhớ đệm Visual C++
+ipch /
+* .aps
+* .ncb
+* .opensdf
+* .sdf
+* .tệp bộ nhớ đệm
+
+# Trình tạo hồ sơ Visual Studio
+* .psess
+* .vsp
+* .vspx
+
+# Bộ công cụ tự động hóa hướng dẫn
+* .gpState
+
+# ReSharper là một tiện ích bổ sung mã hóa .NET
+_Làm sắc nét hơn * /
+* . [ Rr ] e [ Ss ] người chơi đàn hạc
+* .DotSettings.người dùng
+
+# Thư mục Click-Once
+xuất bản /
+
+# Xuất bản Web Output
+* .Xuất bản.xml
+* .pubxml
+* .azurePubxml
+
+# Thư mục gói NuGet
+# # TODO: Nếu bạn đã bật NuGet Package Restore, hãy bỏ chú thích dòng tiếp theo
+gói /
+# # TODO: Nếu công cụ bạn sử dụng yêu cầu repositories.config, hãy bỏ chú thích dòng tiếp theo
+! gói / repositories.config
+
+# Đầu ra bản dựng Windows Azure
+csx /
+* .build.csdef
+
+# Thư mục gói ứng dụng Windows Store
+Gói ứng dụng /
+
+# Người khác
+lệnh /
+* .Bộ nhớ đệm
+Khách hàngBin /
+[ Ss ] loại [ Cc ] op. *
+! [ Ss ] tyle [ Cc ] mục tiêu op
+~$ *
+* ~
+* .dbmdl
+* . [ Pp ] ublish.xml
+
+* .publishsettings
+
+# Dự án RIA/Silverlight
+Mã được tạo ra /
+
+# Sao lưu và báo cáo các tập tin từ việc chuyển đổi một tập tin dự án cũ sang một tập tin mới hơn
+# Phiên bản Visual Studio. Không cần tệp sao lưu vì chúng ta có git ;-)
+_Nâng cấp báo cáo_Tệp /
+Hỗ trợ * /
+Nhật ký nâng cấp * .XML
+Nhật ký nâng cấp * .htm
+
+# Các tập tin SQL Server
+Dữ liệu ứng dụng / * .mdf
+Dữ liệu ứng dụng / * .ldf
+
+# =========================
+# Rác thải của Windows
+# =========================
+
+# Bộ nhớ đệm tệp hình ảnh Windows
+Thumbs.db
+ehthumbs.db
+
+# Tệp cấu hình thư mục
+Desktop.ini
+
+# Thùng rác được sử dụng trên các chia sẻ tệp
+$RECYCLE.BIN /
+
+# Tệp lưu trữ dịch vụ máy tính để bàn Mac
+.DS_Cửa hàng
+
+_NCrunch *
