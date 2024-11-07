@@ -279,7 +279,12 @@
                     </form>
                     <div class="button-container">
 
-                        <a class="button continue-btn" href="https://localhost:44303/account/login">Continue</a>
+                        
+                       @*  <a class="button continue-btn" href="@Url.Action("Login", "Account")" href="UserLogin">Continue</a> *@
+                        <a class="button continue-btn" href="@Url.Action("Login", "Account")#UserLogin">Continue</a>
+
+
+
                     </div>
                 </div>
             </div>
