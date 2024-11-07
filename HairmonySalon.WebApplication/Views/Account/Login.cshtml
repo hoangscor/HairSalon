@@ -3,34 +3,77 @@
 
 
 @{
-    ViewBag.Title = "Login";
+	ViewBag.Title = "Login";
 }
+<style>
+	.btn:active {
+		transform: scale(0.95); /* Hiệu ứng thu nhỏ nút khi nhấn */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
 
-<h1>User Login</h1>
+	.container {
+		width: 80%;
+		margin: 20px auto;
+	}
 
-<div class="row">
-    <div class="col-md-12">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label asp-for="RememberMe">
-                        <input asp-for="RememberMe" />
-                        @Html.DisplayNameFor(m => m.RememberMe)
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-    </div>
-</div>
+
+	/* Hiệu ứng gợn sóng */
+	.btn {
+		position: relative;
+		overflow: hidden; /* Ẩn gợn sóng ra ngoài nút */
+	}
+
+		.btn .ripple {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			background: rgba(255, 255, 255, 0.6);
+			border-radius: 50%;
+			transform: scale(0);
+			animation: ripple-animation 0.6s linear;
+		}
+</style>
+<section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg-1.jpg');" data-stellar-background-ratio="0.5">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+			<div class="col-md-9 ftco-animate pb-5 text-center">
+				<h2 class="mb-0 bread">User login</h2>
+				<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-round-forward"></i></a></span> <span>Login <i class="ion-ios-arrow-round-forward"></i></span></p>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center">
+
+			<div class="row">
+				<div class="col-md-12">
+					<form method="post">
+						<div asp-validation-summary="All" class="text-danger"></div>
+						<div class="form-group">
+							<label asp-for="Email"></label>
+							<input asp-for="Email" class="form-control" />
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<label asp-for="Password"></label>
+							<input asp-for="Password" class="form-control" />
+							<span asp-validation-for="Password" class="text-danger"></span>
+						</div>
+						<div class="form-group">
+							<div class="checkbox">
+								<label asp-for="RememberMe">
+									<input asp-for="RememberMe" />
+									@Html.DisplayNameFor(m => m.RememberMe)
+								</label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Login</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
