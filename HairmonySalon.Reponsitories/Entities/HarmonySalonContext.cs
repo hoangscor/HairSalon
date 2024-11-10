@@ -23,6 +23,8 @@ public partial class HarmonySalonContext : DbContext
 
     public virtual DbSet<Dashboard> Dashboards { get; set; }
 
+    public virtual DbSet<Manager> Managers { get; set; }
+
     public virtual DbSet<Payment> Payments { get; set; }
 
     public virtual DbSet<SalonStaff> SalonStaffs { get; set; }
@@ -101,6 +103,21 @@ public partial class HarmonySalonContext : DbContext
 
             entity.Property(e => e.Reports).HasMaxLength(255);
             entity.Property(e => e.Statistics).HasMaxLength(255);
+        });
+
+        modelBuilder.Entity<Manager>(entity =>
+        {
+            entity.HasKey(e => e.ManagerId).HasName("PK__Manager__3BA2AAE1ED99B6A4");
+
+            entity.ToTable("Manager");
+
+            entity.Property(e => e.ManagerId).ValueGeneratedNever();
+            entity.Property(e => e.Permissions).HasMaxLength(255);
+
+            entity.HasOne(d => d.ManagerNavigation).WithOne(p => p.Manager)
+                .HasForeignKey<Manager>(d => d.ManagerId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__Manager__Manager__5CD6CB2B");
         });
 
         modelBuilder.Entity<Payment>(entity =>
