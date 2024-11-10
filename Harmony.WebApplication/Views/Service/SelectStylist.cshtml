@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        /* style.css */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .containers {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            flex-grow: 1;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .staff-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .avatar {
+            font-size: 24px;
+            background-color: #eee;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #666;
+        }
+
+        .info {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+            .info h3 {
+                font-size: 16px;
+                margin: 0;
+                color: #333;
+            }
+
+            .info p {
+                margin: 5px 0 0;
+                color: #666;
+                font-size: 14px;
+            }
+
+        .select-button {
+            background-color: #555;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+            .select-button:hover {
+                background-color: #333;
+            }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="containers">
+        <h2>Select Staff for Cut Consultation</h2>
+
+        <div class="staff-card">
+            <div class="avatar">&#128101;</div>
+            <div class="info">
+                <h3>any available staff</h3>
+                <p>Maximize number of available appointment times.</p>
+            </div>
+            <a href="/services/picktime" class="select-button">Select</a>
+        </div>
+
+        <div class="staff-card">
+            <div class="avatar">&#128113;</div>
+            <div class="info">
+                <h3>any female staff</h3>
+                <p>Show me appointments with any female.</p>
+            </div>
+            <a href="/services/picktime" class="select-button">Select</a>
+        </div>
+
+        <div class="staff-card">
+            <div class="avatar">&#128104;</div>
+            <div class="info">
+                <h3>any male staff</h3>
+                <p>Show me appointments with any male.</p>
+            </div>
+            <a href="/services/picktime" class="select-button">Select</a>
+        </div>
+
+        <div class="staff-card">
+            <div class="avatar">E</div>
+            <div class="info">
+                <h3>Erica Stietenroth</h3>
+            </div>
+            <a href="/services/picktime" class="select-button">Select</a>
+        </div>
+
+        <div class="staff-card">
+            <div class="avatar">M</div>
+            <div class="info">
+                <h3>Mike Anthony</h3>
+            </div>
+            <a href="/services/picktime" class="select-button">Select</a>
+        </div>
+    </div>
+</body>
+</html>
