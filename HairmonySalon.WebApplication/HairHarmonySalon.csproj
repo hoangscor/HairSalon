@@ -15,6 +15,7 @@
     <None Include="wwwroot\fonts\ionicons\fonts\.DS_Store" />
     <None Include="wwwroot\images\.DS_Store" />
     <None Include="wwwroot\js\.DS_Store" />
+    <None Include="wwwroot\LayoutAdmin\.DS_Store" />
     <None Include="wwwroot\scss\.DS_Store" />
     <None Include="wwwroot\scss\bootstrap\.DS_Store" />
   </ItemGroup>
@@ -36,6 +37,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
 
 </Project>
