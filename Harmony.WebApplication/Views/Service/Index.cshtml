@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .header img {
+                width: 120px;
+            }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+            }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .services-menu {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .services-menu a {
+                text-decoration: none;
+                color: #555;
+            }
+
+        .section-title {
+            margin: 20px 0 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 48%;
+        }
+
+            .service-item p {
+                margin: 5px 0;
+                color: #555;
+            }
+
+            .service-item .price {
+                font-weight: bold;
+                color: #333;
+            }
+
+            .service-item .book-btn {
+                display: inline-block;
+                padding: 8px 16px;
+                background-color: #555;
+                color: #fff;
+                border-radius: 5px;
+                text-decoration: none;
+                margin-top: 10px;
+            }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg-1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate pb-5 text-center">
+                    <h2 id="Services1" class="mb-0 bread">Services</h2>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-round-forward"></i></a></span> <span>Services <i class="ion-ios-arrow-round-forward"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="services-menu">
+            <a href="#consultation">Consultation</a>
+            <a href="#hair-care">Hair Care</a>
+            <a href="#hair-color">Hair Color</a>
+            <a href="#hair-extensions">Hair Extensions</a>
+            <a href="#haircuts">Haircuts</a>
+            <a href="#men-grooming">Men's Grooming</a>
+            <a href="#waxing">Waxing</a>
+        </div>
+
+        <div class="section-title" id="consultation">Consultation</div>
+        <div class="services">
+            <div class="service-item">
+                <h3>Color Consultation</h3>
+                <p>15 min</p>
+                <p>Looking to change your color? This one is for you! You may also text us for a consultation virtually at 713-523-6905</p>
+                <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Cut Consultation')">Book</a>
+            </div>
+            <div class="service-item">
+                <h3>Cut Consultation</h3>
+                <p>15 min</p>
+                <p>Want a change but not sure? New to the salon? This is for you! And it's complimentary. Text us here as well for one 713-523-6905</p>
+                <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Cut Consultation')">Book</a>
+            </div>
+        </div>
+
+        <div class="service-section">
+            <div class="section-title" id="hair-care">Hair Care</div>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Blow out</h3>
+                    <p>45 min <span class="price">- $50.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Blow out')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Blow out (Long and Thick)</h3>
+                    <p>1 hr <span class="price">- $55.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Blow out (Long and Thick)')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Blow out with extensions</h3>
+                    <p>45 min <span class="price">- $75.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Blow out with extensions')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Brazilian Blow Out</h3>
+                    <p>3 hr <span class="price">- $350.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Brazilian Blow Out')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>CBD Molecule Bonding Treatment</h3>
+                    <p>30 min <span class="price">- $65.00</span></p>
+                    <p>Add on this truly regenerating conditioning treatment infused with CBD from Leaf + Flower. Help mend broken bonds and creates softness.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('CBD Molecule Bonding Treatment')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Demi Permanent B3 Conditioner</h3>
+                    <p>35 min <span class="price">- $45.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Demi Permanent B3 Conditioner')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Formal styling</h3>
+                    <p>1 hr <span class="price">- $95.00</span></p>
+                    <p>Formal occasion styling.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Formal styling')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Keratin treatment</h3>
+                    <p>2 hr 30 min <span class="price">- $350.00</span></p>
+                    <p>3-4 months of smooth frizz-free hair.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Keratin treatment')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Perm/Body Wave</h3>
+                    <p>2 hr <span class="price">- $150.00</span></p>
+                    <p>Want waves or curls? Let’s do it!</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Perm/Body Wave')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Color</h3>
+                    <p>1 hr 30 min <span class="price">- $95.00</span></p>
+                    <p>All over color. Price is determined by length and thickness of hair.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Color')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Highlight</h3>
+                    <p>2 hr <span class="price">- $150.00</span></p>
+                    <p>Foil highlights. Price is determined by length and thickness of hair.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Highlight')">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-section">
+            <div class="section-title" id="hair-color">Hair Color</div>
+            <div class="services">
+                <div class="service-item">
+                    <h3>A Notice For Clients</h3>
+                    <p>5 min</p>
+                    <p>If you are booking, please add a brief description of what you're looking for! You can send us pictures as well; we look forward to seeing you!</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn">Call to book</a>
+                </div>
+                <div class="service-item">
+                    <h3>B3 Brazilian Bond Builder</h3>
+                    <p>5 min <span class="price">- $10.00</span></p>
+                    <p>Can be added to any color service to reduce damage in the highlighting/coloring process.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('B3 Brazilian Bond Builder')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Balayage</h3>
+                    <p>3 hr <span class="price">- $225.00</span></p>
+                    <p>Lived in color, perfect for those who want to be brighter without being bright all over. If you have Rapunzel length hair, please let us know in your notes.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Balayage')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Corrective Color</h3>
+                    <p>2 hr 30 min</p>
+                    <p>This service is for correcting previous color applications to achieve your desired look.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Corrective Color')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Face Frame Highlight</h3>
+                    <p>2 hr <span class="price">- $100.00</span></p>
+                    <p>A few highlights to brighten up around your face (14 foils).</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Face Frame Highlight')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Full Highlights</h3>
+                    <p>3 hr 30 min <span class="price">- $225.00</span></p>
+                    <p>This service is to achieve a brighter look all around your head using foils. This is good for your first-time foil to be brighter or maintenance on a partial. If you have Rapunzel length hair, please let us know in your notes.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Full Highlights')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Glaze/Toner</h3>
+                    <p>45 min <span class="price">- $50.00</span></p>
+                    <p>A quick color adjustment to enhance your current color.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Glaze/Toner')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Partial Highlight</h3>
+                    <p>2 hr <span class="price">- $125.00</span></p>
+                    <p>This service is good if you just had a full and need a touch up between your next full using foils. This is also good for those looking for a subtle change.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Partial Highlight')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Root Touch Up</h3>
+                    <p>1 hr 30 min <span class="price">- $95.00</span></p>
+                    <p>Perfect for those with a base color already and just need the roots touched up.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Root Touch Up')">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-section">
+            <div class="section-title" id="hair-extensions">Hair Extensions</div>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Hair Extensions</h3>
+                    <p>30 min</p>
+                    <p>Please note, any extension service requires a consultation. This is not an appointment, only a consult. Please call the salon for booking with Katarina.</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Hair Extensions')'">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-section">
+            <div class="section-title" id="haircuts">Haircuts</div>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Bang Trim</h3>
+                    <p>15 min <span class="price">- $10.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Bang Trim')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Haircut</h3>
+                    <p>45 min <span class="price">- $85.00</span></p>
+                    <p>Cleansing massage + haircut + style</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Haircut')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Haircut Only</h3>
+                    <p>45 min <span class="price">- $65.00</span></p>
+                    <p>A haircut, minus the blowout</p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Haircut Only')">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-section">
+            <div class="section-title" id="men-grooming">Men's Grooming</div>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Beard Trim</h3>
+                    <p>15 min <span class="price">- $15.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Beard Trim')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Men's Hair Color</h3>
+                    <p>45 min <span class="price">- $55.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Men\'s Hair Color')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Men's Haircut</h3>
+                    <p>30 min <span class="price">- $55.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Men\'s Haircut')">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-section">
+            <div class="section-title" id="waxing">Waxing</div>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Brows</h3>
+                    <p>15 min <span class="price">- $25.00</span></p>
+                    <a href="/services/appointment" class="book-btn" onclick="redirectToBookingPage('Brows')">Book</a>
+                </div>
+                <div class="service-item">
+                    <h3>Full Face</h3>
+                    <p>30 min <span class="price">- $45.00</span></p>
+                    <a href="/services/appointment#Appointment1" class="book-btn" onclick="redirectToBookingPage('Full Face')">Book</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function redirectToBookingPage(serviceName) {
+            // Chuyển hướng tới booking.html với tên dịch vụ trong URL
+            window.location.href = `appointment.html?service=${encodeURIComponent(serviceName)}`;
+        }
+    </script>
+</body>
+</html>
