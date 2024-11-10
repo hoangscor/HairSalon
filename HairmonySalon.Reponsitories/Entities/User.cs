@@ -19,5 +19,7 @@ public partial class User
 
     public virtual Customer? Customer { get; set; }
 
+    public virtual Manager? Manager { get; set; }
+
     public virtual SalonStaff? SalonStaff { get; set; }
 }
