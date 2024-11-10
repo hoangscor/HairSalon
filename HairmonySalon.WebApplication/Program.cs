@@ -44,7 +44,12 @@ public class Program
     .AddEntityFrameworkStores<HarmonySalonContext>()
     .AddDefaultTokenProviders();
 
-
+        // Configure the Application Cookie settings
+        builder.Services.ConfigureApplicationCookie(options =>
+        {
+            // If the LoginPath isn't set, ASP.NET Core defaults the path to /Account/Login.
+            options.LoginPath = "/Account/Login"; // Set your login path here
+        });
         // dang ki dich vu
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages().AddRazorRuntimeCompilation();

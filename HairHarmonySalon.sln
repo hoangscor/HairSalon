@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Repositories", "Hai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Services", "HairmonySalon.Services\Harmony.Services.csproj", "{4D209046-4227-4019-80AE-8A2E00E6DFF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.WebApplication", "Harmony.WebApplication\Harmony.WebApplication.csproj", "{5F0A899C-100B-4478-B20C-9CE2AE8FB637}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4D209046-4227-4019-80AE-8A2E00E6DFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D209046-4227-4019-80AE-8A2E00E6DFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D209046-4227-4019-80AE-8A2E00E6DFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F0A899C-100B-4478-B20C-9CE2AE8FB637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0A899C-100B-4478-B20C-9CE2AE8FB637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0A899C-100B-4478-B20C-9CE2AE8FB637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0A899C-100B-4478-B20C-9CE2AE8FB637}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

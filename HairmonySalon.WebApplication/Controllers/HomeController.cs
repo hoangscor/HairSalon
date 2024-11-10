@@ -1,5 +1,6 @@
 using HairHarmonySalon.Models;
 using Harmony.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -47,7 +48,17 @@ namespace HairHarmonySalon.Controllers
 		{
 			return View();
 		}
-        public async Task<IActionResult> Indexs()
+		[AllowAnonymous]
+		public IActionResult NonSecureMethod()
+		{
+			return View();
+		}
+		[Authorize]
+		public IActionResult SecureMethod()
+		{
+			return View();
+		}
+		public async Task<IActionResult> Indexs()
         {
             var users = await _userService.Users();
             return View(users);
