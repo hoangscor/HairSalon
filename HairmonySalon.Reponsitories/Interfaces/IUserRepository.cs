@@ -7,9 +7,9 @@ using HarmonySalon.Reponsitories.Entities;
 
 namespace Harmony.Repositories.Interfaces
 {
-	public interface IUserRepository
-	{
-		Task<List<User>> GetAllUser();
+    public interface IUserRepository
+    {
+        Task<List<User>> GetAllUser();
 
-	}
+    }
 }
