@@ -167,7 +167,7 @@
     <section class="containers">
         <a href="/services" class="back">← Back</a>
         <div id="service-info">
-            <!-- Tên dịch vụ sẽ được hiển thị ở đây -->
+           <p>Choose guest</p>
 
 
         </div>
@@ -188,28 +188,7 @@
 
     </section>
 
-    <script>
-        // Lấy thông tin dịch vụ từ URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const serviceName = urlParams.get('service');
 
-        // Thông tin chi tiết về các dịch vụ
-        const serviceDetails = {
-            "Blow out": "45 phút - Giá: $50.00",
-            "Blow out (Long and Thick)": "1 giờ - Giá: $55.00",
-            // Thêm các dịch vụ khác nếu cần
-        };
-        // Hiển thị tên dịch vụ trong phần tử với id "service-info"
-                const serviceInfoDiv = document.getElementById('service-info');
-        if (serviceName && serviceDetails[serviceName]) {
-            serviceInfoDiv.innerHTML = `
-                        <h1>${serviceName}</h1>
-                        <p>${serviceDetails[serviceName]}</p>
-                    `;
-        } else {
-            serviceInfoDiv.innerHTML = `<p>Dịch vụ đang được chọn.</p>`;
-        }
-    </script>
 
 </body>
 </html>
