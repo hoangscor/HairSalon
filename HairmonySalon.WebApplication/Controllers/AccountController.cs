@@ -33,7 +33,7 @@ namespace HairHarmonySalon.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser
+                var user = new IdentityUser
                 {
                     UserName = model.Email,
                     Email = model.Email
