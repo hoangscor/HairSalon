@@ -1,0 +1,91 @@
+﻿@model IEnumerable<HarmonySalon.Reponsitories.Entities>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h4>Appointments Data Table</h4>
+        <p>Admin can view the list of appointments</p>
+        <div class="container">
+            <div class="m-t-25">
+                <table id="data-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Appointment Date</th>
+                            <th>Customer</th>
+                            <th>Stylist</th>
+                            <th>Duration</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <!-- Service Name -->
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Service.Name)
+                                </td>
+
+                                <!-- Status -->
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+
+                                <!-- Appointment Date -->
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                                </td>
+
+                                <!-- Customer Name -->
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Customer.FullName)
+                                </td>
+
+                                <!-- Stylist Name -->
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Stylist.FullName)
+                                </td>
+
+                                <!-- Duration (assuming Duration is available in the Service model) -->
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Service.Duration) @(" minutes")
+                                </td>
+
+                                <!-- Action Button (View details) -->
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.AppointmentId">
+                                        <button class="btn btn-info btn-tone m-r-2">Details</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Appointment Date</th>
+                            <th>Customer</th>
+                            <th>Stylist</th>
+                            <th>Duration</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section AdminScripts {
+    <script>
+        $('#data-table').DataTable();
+    </script>
+}

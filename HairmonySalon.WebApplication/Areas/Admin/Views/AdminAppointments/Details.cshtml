@@ -1,0 +1,103 @@
+﻿@model IEnumerable<HarmonySalon.Reponsitories.Entities>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Details</h1>
+<div class="container col-md-8">
+    <div class="card">
+        <div class="container col-md-10">
+            <br />
+            <div>
+                <h4>Appointment</h4>
+                <hr />
+                <dl class="row">
+                    <!-- Status -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Status)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Status)
+                    </dd>
+
+                    <!-- Appointment Date -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.AppointmentDate)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.AppointmentDate)
+                    </dd>
+
+                    <!-- Customer Name -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Customer.FullName)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Customer.FullName)
+                    </dd>
+
+                    <!-- Stylist Name -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Stylist.FullName)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Stylist.FullName)
+                    </dd>
+
+                    <!-- Service Name -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Service.Name)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Service.Name)
+                    </dd>
+
+                    <!-- Service Duration -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Service.Duration)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Service.Duration) @(" minutes")
+                    </dd>
+
+                    <!-- Appointment Price -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Service.Price)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Service.Price) @(" VNĐ")
+                    </dd>
+
+                    <!-- Appointment Notes (if applicable) -->
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Notes)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Notes)
+                    </dd>
+
+                    <!-- Cancel Appointment -->
+                    <dt class="col-sm-2">
+                        Cancel Appointment
+                    </dt>
+                    <dd class="col-sm-10">
+                        <a asp-action="Cancel" asp-route-id="@Model.AppointmentId">
+                            <button class="btn btn-danger btn-tone m-r-2">Cancel</button>
+                        </a>
+                    </dd>
+                </dl>
+            </div>
+
+            <!-- Action Buttons -->
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.AppointmentId">
+                    <button class="btn btn-primary btn-tone m-r-1">Edit</button>
+                </a>
+                <a asp-action="Index">Back to List</a>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
