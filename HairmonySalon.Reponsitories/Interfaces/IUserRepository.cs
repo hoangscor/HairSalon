@@ -10,6 +10,6 @@ namespace Harmony.Repositories.Interfaces
     public interface IUserRepository
     {
         Task<List<User>> GetAllUser();
-
+        Task<User?> AuthenticateUser(string email, string password); // Thêm phương thức xác thực
     }
 }
