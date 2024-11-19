@@ -10,11 +10,6 @@ namespace HairHarmonySalon.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
         private readonly IUserService _userService; // add read service
-        public HomeController(IUserService userService, ILogger<HomeController> logger)
-        {
-            _userService = userService;
-            _logger = logger;
-        }
 
         public IActionResult Index()
 		{

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using HairHarmonySalon.Models;
+using HairHarmonySalon.Models.Authentication;
 
 namespace HairHarmonySalon.Controllers
 {
@@ -14,6 +15,8 @@ namespace HairHarmonySalon.Controllers
 		{
 			return View();
 		}
+
+		[Authentication]
 		public IActionResult PickTime()
 		{
 			return View();

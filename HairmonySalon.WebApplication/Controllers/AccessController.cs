@@ -28,11 +28,24 @@ namespace HairHarmonySalon.Controllers
                     user.Password)).FirstOrDefault();
                 if (u != null)
                 {
-                    HttpContext.Session.SetString("UserName", u.Email.ToString());
+                    var user_name = u.Name.ToString();
+					HttpContext.Session.SetString("UserName", user_name);
+
+                    var role = u.UserType.ToString();
+                    HttpContext.Session.SetString("Role", role);
+
+
                     return RedirectToAction("Index", "Home");
                 }
             }
             return View();
         }
-    }
+		public IActionResult Logout()
+		{
+			HttpContext.Session.Clear();
+			HttpContext.Session.Remove("UserName");
+			return RedirectToAction("Login", "Access");
+		}
+	}
 }
+

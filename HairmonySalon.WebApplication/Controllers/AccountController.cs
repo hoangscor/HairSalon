@@ -19,16 +19,9 @@ namespace HairHarmonySalon.Controllers
         private readonly SignInManager<IdentityUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
 
-        public AccountController(
-           IUserService userService,
-           UserManager<IdentityUser> userManager,
-           SignInManager<IdentityUser> signInManager,
-           RoleManager<IdentityRole> roleManager)
+        public AccountController()
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
-            this.roleManager = roleManager;
-            _userService = userService;
+
         }
 
         [HttpGet]

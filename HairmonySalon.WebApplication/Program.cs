@@ -61,10 +61,21 @@ public class Program
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         // DI Services
         builder.Services.AddScoped<IUserService, UserService>();
-        //Add Session
-        builder.Services.AddSession();
+		//Add Session
+		builder.Services.AddSession(options =>
+		{
+			options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian tồn tại của session
+			options.Cookie.HttpOnly = true; // Bảo mật cookie
+			options.Cookie.IsEssential = true; // Session cần thiết
+		});
+		builder.Services.AddHttpContextAccessor();
+		builder.Services.Configure<CookiePolicyOptions>(options =>
+		{
+			options.CheckConsentNeeded = context => false; // Cho phép cookie
+			options.MinimumSameSitePolicy = SameSiteMode.None;
+		});
 
-        var app = builder.Build();
+		var app = builder.Build();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -81,10 +92,12 @@ public class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
 
-        app.UseRouting();
+		app.UseSession();
+
+		app.UseRouting();
 
         app.UseAuthorization();
-        app.UseSession();
+        
         // Route hone 
         app.MapControllerRoute(
     name: "default",
