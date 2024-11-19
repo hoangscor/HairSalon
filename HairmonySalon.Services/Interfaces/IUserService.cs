@@ -10,5 +10,6 @@ namespace Harmony.Services.Interfaces
     public interface IUserService
     {
         Task<List<User>> Users();
+        Task<User?> AuthenticateUser(string email, string password); // Thêm phương thức xác thực
     }
 }
