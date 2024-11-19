@@ -12,6 +12,7 @@ namespace Harmony.Services
 	public class UserService : IUserService
 	{
 		private readonly IUserRepository _repository;
+
 		public UserService(IUserRepository repository)
 		{
 			_repository = repository;
@@ -21,5 +22,10 @@ namespace Harmony.Services
 		{
 			return _repository.GetAllUser();
 		}
-	}
+        // Thêm logic xác thực
+        public Task<User?> AuthenticateUser(string email, string password)
+        {
+            return _repository.AuthenticateUser(email, password);
+        }
+    }
 }
