@@ -12,6 +12,11 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
         [Route("index")]
         public IActionResult Index()
         {
+            var role = HttpContext.Session.GetString("Role");
+            if (role != "Admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
     }
