@@ -2,17 +2,25 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.CodeAnalysis.Scripting;
+using BCrypt.Net;
+using Harmony.Services.Interfaces;
+using Harmony.Services;
+using HarmonySalon.Reponsitories.Entities;
+using Microsoft.EntityFrameworkCore;
 namespace HairHarmonySalon.Controllers
 {
-	public class AccountController : Controller
+	public class AccountController : AppController
 	{
-
+        HarmonySalonContext db = new HarmonySalonContext();
+        // khai baos IUserService
+        private readonly IUserService _userService;
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
 
         public AccountController(
+           IUserService userService,
            UserManager<IdentityUser> userManager,
            SignInManager<IdentityUser> signInManager,
            RoleManager<IdentityRole> roleManager)
@@ -20,6 +28,7 @@ namespace HairHarmonySalon.Controllers
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
+            _userService = userService;
         }
 
         [HttpGet]
@@ -31,29 +40,32 @@ namespace HairHarmonySalon.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterVM model)
         {
-            if (ModelState.IsValid)
+            // Kiểm tra xem Email đã tồn tại hay chưa
+            var existingUser = db.Users.FirstOrDefault(u => u.Email == model.Email);
+            if (existingUser != null)
             {
-                var user = new IdentityUser
-                {
-                    UserName = model.Email,
-                    Email = model.Email
-                };
-
-                var result = await userManager.CreateAsync(user, model.Password);
-
-                if (result.Succeeded)
-                {
-                    await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("index", "home");
-                }
-
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                ModelState.AddModelError("", "Email already exists.");
+                return View(model);
             }
+
+            // Tạo người dùng mới
+            var user = new User
+            {
+                Name = model.Name,
+                Email = model.Email,
+                Password = model.Password,
+				UserType = "Customer"
+			};
+
+            // Lưu người dùng vào cơ sở dữ liệu
+            db.Users.Add(user);
+            db.SaveChanges();
+
+            // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
+            /*return RedirectToAction("Login", "Account");*/
             return View(model);
         }
+
 
 
         [HttpGet]
@@ -69,29 +81,29 @@ namespace HairHarmonySalon.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-
-                if (result.Succeeded)
+                var user = await userManager.FindByEmailAsync(model.Email);
+                if (user == null)
                 {
-                    return RedirectToAction(nameof(HomeController.Index), "Home");
-                }
-                if (result.RequiresTwoFactor)
-                {
-                    // Handle two-factor authentication case
-                }
-                if (result.IsLockedOut)
-                {
-                    // Handle lockout scenario
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Invalid email or password.");
                     return View(model);
                 }
+
+                // Kiểm tra mật khẩu
+                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash);
+                if (!isPasswordValid)
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid email or password.");
+                    return View(model);
+                }
+
+                // Đăng nhập thành công
+                await signInManager.SignInAsync(user, isPersistent: model.RememberMe);
+                return RedirectToAction("Index", "Home");
             }
 
             return View(model);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Logout()

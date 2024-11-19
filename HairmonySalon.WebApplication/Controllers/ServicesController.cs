@@ -4,7 +4,7 @@ using HairHarmonySalon.Models;
 
 namespace HairHarmonySalon.Controllers
 {
-	public class ServicesController : Controller
+	public class ServicesController : AppController
 	{
 		public IActionResult Index()
 		{

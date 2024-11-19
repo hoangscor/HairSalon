@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace HairHarmonySalon.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController : AppController
 	{
 		private readonly ILogger<HomeController> _logger;
         private readonly IUserService _userService; // add read service

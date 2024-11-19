@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Harmony.WebApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f1159941ab3c7f32ef64ad3683627a3832ee952")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be1160965446ad52774b518153fc2653b7e5be86")]
 [assembly: System.Reflection.AssemblyProductAttribute("Harmony.WebApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Harmony.WebApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

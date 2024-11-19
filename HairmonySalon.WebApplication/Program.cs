@@ -25,8 +25,10 @@ public class Program
 
         // Add services to the container. ket noi csdl 
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+        // DIII
         builder.Services.AddDbContext<HarmonySalonContext>(options =>
-            options.UseSqlServer(connectionString));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        b => b.MigrationsAssembly("Harmony.Repositories"))); // Đảm bảo đồng nhất MigrationsAssembly
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
         //cấu hình đăng kí dịch vụ identity 
@@ -54,11 +56,14 @@ public class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
         // DI 
-        /*builder.Services.AddDbContext<HarmonySalonContext>();*/
+        builder.Services.AddDbContext<HarmonySalonContext>();
         // DI Repositories
         builder.Services.AddScoped<IUserRepository, UserRepository>();
         // DI Services
         builder.Services.AddScoped<IUserService, UserService>();
+        //Add Session
+        builder.Services.AddSession();
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -79,11 +84,7 @@ public class Program
         app.UseRouting();
 
         app.UseAuthorization();
-        /*// Route Account 
-        app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Account}/{action=Index}/{id?}");*/
-
+        app.UseSession();
         // Route hone 
         app.MapControllerRoute(
     name: "default",

@@ -4,7 +4,6 @@ namespace HairHarmonySalon.ViewModel
 {
 	public class RegisterVM
 	{
-
 			[Required]
 			[EmailAddress]
 			public string Email { get; set; }
@@ -17,6 +16,12 @@ namespace HairHarmonySalon.ViewModel
 			[Display(Name = "Confirm password")]
 			[Compare("Password", ErrorMessage = "Password and confirmation password do not match.")]
 			public string ConfirmPassword { get; set; }
-		}
+
+			[Required]
+			public string Name { get; set; }
+
+			[Required]
+			public string UserType { get; set; }
+	}
 	}
 
