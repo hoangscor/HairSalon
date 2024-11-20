@@ -1,6 +1,6 @@
 ﻿using Harmony.Repositories.Interfaces;
 using Harmony.Services.Interfaces;
-using HarmonySalon.Reponsitories.Entities;
+using Harmony.Repositories.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
