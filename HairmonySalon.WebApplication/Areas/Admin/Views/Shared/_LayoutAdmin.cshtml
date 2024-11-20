@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -23,7 +24,7 @@
         <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><span class="flaticon-scissors-in-a-hair-salon-badge"></span>Admin</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><span class="flaticon-scissors-in-a-hair-salon-badge"></span>Home</a>
                 <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../LayoutAdmin/assets/images/logo-mini.svg" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -95,19 +96,19 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../../index.html">
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title">User</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">Basic UI Elements</span>
+                            <span class="menu-title">Quản Lý Người Dùng</span>
                             <i class="menu-arrow"></i>
                             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="admin" asp-controller="HomeAdmin" asp-action="DanhMucUser">Danh Mục Người Dùng</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
                             </ul>
                         </div>
