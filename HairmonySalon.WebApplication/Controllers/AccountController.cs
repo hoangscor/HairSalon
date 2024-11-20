@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.Scripting;
 using BCrypt.Net;
 using Harmony.Services.Interfaces;
 using Harmony.Services;
-using HarmonySalon.Reponsitories.Entities;
+using Harmony.Repositories.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace HairHarmonySalon.Controllers
 {
