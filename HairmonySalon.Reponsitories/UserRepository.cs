@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Harmony.Repositories.Interfaces;
-using HarmonySalon.Reponsitories.Entities;
+using Harmony.Repositories.Entities;
 
 namespace Harmony.Repositories
 {
