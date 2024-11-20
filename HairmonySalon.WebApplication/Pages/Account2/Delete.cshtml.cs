@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using HarmonySalon.Reponsitories.Entities;
+using Harmony.Repositories.Entities;
 
 namespace HairHarmonySalon.Pages.Account2
 {
     public class DeleteModel : PageModel
     {
-        private readonly HarmonySalon.Reponsitories.Entities.HarmonySalonContext _context;
+        private readonly Harmony.Repositories.Entities.HarmonySalonContext _context;
 
-        public DeleteModel(HarmonySalon.Reponsitories.Entities.HarmonySalonContext context)
+        public DeleteModel(Harmony.Repositories.Entities.HarmonySalonContext context)
         {
             _context = context;
         }

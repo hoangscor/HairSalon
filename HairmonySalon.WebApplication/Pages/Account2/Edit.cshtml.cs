@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using HarmonySalon.Reponsitories.Entities;
+using Harmony.Repositories.Entities;
 
 namespace HairHarmonySalon.Pages.Account2
 {
     public class EditModel : PageModel
     {
-        private readonly HarmonySalon.Reponsitories.Entities.HarmonySalonContext _context;
+        private readonly Harmony.Repositories.Entities.HarmonySalonContext _context;
 
-        public EditModel(HarmonySalon.Reponsitories.Entities.HarmonySalonContext context)
+        public EditModel(Harmony.Repositories.Entities.HarmonySalonContext context)
         {
             _context = context;
         }

@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using HarmonySalon.Reponsitories.Entities;
+using Harmony.Repositories.Entities;
 
 namespace HairHarmonySalon.Pages.Account2
 {
     public class CreateModel : PageModel
     {
-        private readonly HarmonySalon.Reponsitories.Entities.HarmonySalonContext _context;
+        private readonly Harmony.Repositories.Entities.HarmonySalonContext _context;
 
-        public CreateModel(HarmonySalon.Reponsitories.Entities.HarmonySalonContext context)
+        public CreateModel(Harmony.Repositories.Entities.HarmonySalonContext context)
         {
             _context = context;
         }
