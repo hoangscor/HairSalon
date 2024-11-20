@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿/*using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace Harmony.Repositories.Service
@@ -18,3 +18,4 @@ namespace Harmony.Repositories.Service
         }
     }
 }
+*/
