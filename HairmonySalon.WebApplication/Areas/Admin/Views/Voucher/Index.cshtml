@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Harmony.Repositories.Entities>
+
+<h1 class="text-center mt-4">Voucher List</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Discount Rate</th>
+            <th>Validity Period</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var voucher in Model)
+        {
+            <tr>
+                <td>@voucher.Description</td>
+                <td>@voucher.DiscountRate</td>
+                <td>@voucher.ValidityPeriod</td>
+
+                <td>
+                    <a asp-action="Create" asp-route-id="@voucher.VoucherId" class="btn btn-warning btn-sm">Create</a>
+                    <a asp-action="Edit" asp-route-id="@voucher.VoucherId" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@voucher.VoucherId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
