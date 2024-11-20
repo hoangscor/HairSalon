@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HarmonySalon.Reponsitories.Entities;
+namespace Harmony.Repositories.Entities;
 
 public partial class Appointment
 {
@@ -13,13 +13,9 @@ public partial class Appointment
 
     public int? ServiceId { get; set; }
 
-    public DateTime AppointmentDate { get; set; }
+    public string? AppointmentDate { get; set; }
 
     public string? Status { get; set; }
-
-    public virtual Customer? Customer { get; set; }
-
-    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
     public virtual Service? Service { get; set; }
 
