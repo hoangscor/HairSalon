@@ -10,6 +10,4 @@ public partial class SalonStaff
     public string Availability { get; set; } = null!;
 
     public virtual User Staff { get; set; } = null!;
-
-    public virtual Stylist? Stylist { get; set; }
 }
