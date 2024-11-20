@@ -22,6 +22,7 @@ namespace HairHarmonySalon.ViewModel
 
 			[Required]
 			public string UserType { get; set; }
+
 	}
 	}
 

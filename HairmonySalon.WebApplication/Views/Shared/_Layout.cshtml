@@ -160,7 +160,7 @@
 								</li>
 							}
 
-							if (ViewBag.user_role == "Admin")
+							if (ViewBag.user_role == "Admin" || ViewBag.user_role == "Stylist" || ViewBag.user_role == "Manager")
 							{
 								<li class="nav-item">
 									<a class="nav-link" asp-controller="admin">

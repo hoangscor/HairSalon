@@ -52,51 +52,22 @@ namespace HairHarmonySalon.Controllers
 
             // Lưu người dùng vào cơ sở dữ liệu
             db.Users.Add(user);
-            db.SaveChanges();
-
-            // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
-            /*return RedirectToAction("Login", "Account");*/
-            return View(model);
-        }
-
-
-
-        [HttpGet]
-        public IActionResult Login(string? ReturnUrl = null)
-        {
-            ViewData["ReturnUrl"] = ReturnUrl;
-            return View();
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginVM model)
-        {
-            if (ModelState.IsValid)
+            if (db.SaveChanges() > 0)
             {
-                var user = await userManager.FindByEmailAsync(model.Email);
-                if (user == null)
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid email or password.");
-                    return View(model);
-                }
+				// Đăng kí account thành công => đăng nhập sẵn cho user
+				var user_name = user.Name.ToString();
+				HttpContext.Session.SetString("UserName", user_name);
+				var role = user.UserType.ToString();
+				HttpContext.Session.SetString("Role", role);
+				var user_id = user.UserId.ToString();
+				HttpContext.Session.SetString("UserId", user_id);
+				// Chuyển hướng đến trang Home sau khi đăng ký thành công
+				return RedirectToAction("Index", "Home");
+			}
 
-                // Kiểm tra mật khẩu
-                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash);
-                if (!isPasswordValid)
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid email or password.");
-                    return View(model);
-                }
-
-                // Đăng nhập thành công
-                await signInManager.SignInAsync(user, isPersistent: model.RememberMe);
-                return RedirectToAction("Index", "Home");
-            }
-
+            // Trả về để báo validation
             return View(model);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Logout()
