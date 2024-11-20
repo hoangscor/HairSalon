@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Harmony.Repositories.Entities;
-using HarmonySalon.Reponsitories.Entities;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace HairHarmonySalon.Controllers
