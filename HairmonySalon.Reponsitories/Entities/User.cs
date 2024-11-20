@@ -17,6 +17,10 @@ public partial class User
 
     public string UserType { get; set; } = null!;
 
+    public virtual ICollection<Appointment> AppointmentCustomers { get; set; } = new List<Appointment>();
+
+    public virtual ICollection<Appointment> AppointmentStylists { get; set; } = new List<Appointment>();
+
     public virtual Customer? Customer { get; set; }
 
     public virtual Manager? Manager { get; set; }
