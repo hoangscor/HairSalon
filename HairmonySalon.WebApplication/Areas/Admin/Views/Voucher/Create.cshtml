@@ -1,0 +1,50 @@
+﻿@model Harmony.Repositories.Entities.Voucher
+
+@{
+    ViewData["Title"] = "Create Voucher";
+}
+
+<h1 class="text-center mt-4">Create Voucher</h1>
+
+<div class="container d-flex justify-content-center">
+    <div class="card shadow-lg p-4" style="max-width: 600px; width: 100%; border-radius: 8px;">
+        <form asp-action="Create" method="post">
+            <!-- Description Field -->
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Enter voucher description" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Discount Rate Field -->
+            <div class="form-group mb-3">
+                <label asp-for="DiscountRate" class="form-label">Discount Rate</label>
+                <input asp-for="DiscountRate" class="form-control" placeholder="Enter discount rate" />
+                <span asp-validation-for="DiscountRate" class="text-danger"></span>
+            </div>
+
+            <!-- Validity Period Field -->
+            <div class="form-group mb-3">
+                <label asp-for="ValidityPeriod" class="form-label">Validity Period</label>
+                <input asp-for="ValidityPeriod" class="form-control" placeholder="Enter validity period" />
+                <span asp-validation-for="ValidityPeriod" class="text-danger"></span>
+            </div>
+
+            <!-- Status Field (Select) -->
+            <div class="form-group mb-3">
+                <label class="form-label">Status</label>
+                <select asp-for="ValidityPeriod" class="form-select">
+                    <option value="Valid">Còn hạn</option>
+                    <option value="Expired">Hết hạn</option>
+                </select>
+                <span asp-validation-for="ValidityPeriod" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
