@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace HarmonySalon.Reponsitories.Entities;
+namespace Harmony.Repositories.Entities;
 
 public partial class HarmonySalonContext : DbContext
 {
@@ -25,8 +25,6 @@ public partial class HarmonySalonContext : DbContext
 
     public virtual DbSet<Manager> Managers { get; set; }
 
-    public virtual DbSet<Payment> Payments { get; set; }
-
     public virtual DbSet<SalonStaff> SalonStaffs { get; set; }
 
     public virtual DbSet<Service> Services { get; set; }
@@ -38,39 +36,27 @@ public partial class HarmonySalonContext : DbContext
     public virtual DbSet<Voucher> Vouchers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer(
-                "Data Source=HOANGDZ\\SQLSV;Initial Catalog=HarmonySalon;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False",
-                b => b.MigrationsAssembly("Harmony.Repositories") // Chỉ định assembly migrations
-            );
-        }
-    }
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=HOANGDZ\\SQLSV;Initial Catalog=HarmonySalon;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Appointment>(entity =>
         {
-            entity.HasKey(e => e.AppointmentId).HasName("PK__Appointm__8ECDFCC2511DE8FF");
+            entity.HasKey(e => e.AppointmentId).HasName("PK__Appointm__8ECDFCC23F69601F");
 
             entity.ToTable("Appointment");
 
-            entity.Property(e => e.AppointmentDate).HasColumnType("datetime");
+            entity.Property(e => e.AppointmentDate).HasMaxLength(50);
             entity.Property(e => e.Status).HasMaxLength(50);
-
-            entity.HasOne(d => d.Customer).WithMany(p => p.AppointmentsNavigation)
-                .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Appointme__Custo__48CFD27E");
 
             entity.HasOne(d => d.Service).WithMany(p => p.Appointments)
                 .HasForeignKey(d => d.ServiceId)
-                .HasConstraintName("FK__Appointme__Servi__4AB81AF0");
+                .HasConstraintName("FK__Appointme__Servi__75A278F5");
 
             entity.HasOne(d => d.Stylist).WithMany(p => p.Appointments)
                 .HasForeignKey(d => d.StylistId)
-                .HasConstraintName("FK__Appointme__Styli__49C3F6B7");
+                .HasConstraintName("FK__Appointme__Styli__74AE54BC");
         });
 
         modelBuilder.Entity<Cart>(entity =>
@@ -126,21 +112,6 @@ public partial class HarmonySalonContext : DbContext
                 .HasForeignKey<Manager>(d => d.ManagerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Manager__Manager__5CD6CB2B");
-        });
-
-        modelBuilder.Entity<Payment>(entity =>
-        {
-            entity.HasKey(e => e.PaymentId).HasName("PK__Payment__9B556A389226035D");
-
-            entity.ToTable("Payment");
-
-            entity.Property(e => e.PaymentDate).HasColumnType("datetime");
-            entity.Property(e => e.PaymentMethod).HasMaxLength(50);
-            entity.Property(e => e.PaymentStatus).HasMaxLength(50);
-
-            entity.HasOne(d => d.Appointment).WithMany(p => p.Payments)
-                .HasForeignKey(d => d.AppointmentId)
-                .HasConstraintName("FK__Payment__Appoint__4F7CD00D");
         });
 
         modelBuilder.Entity<SalonStaff>(entity =>

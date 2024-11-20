@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HarmonySalon.Reponsitories.Entities;
+namespace Harmony.Repositories.Entities;
 
 public partial class Voucher
 {
