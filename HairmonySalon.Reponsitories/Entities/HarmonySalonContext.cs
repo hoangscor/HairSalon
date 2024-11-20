@@ -29,8 +29,6 @@ public partial class HarmonySalonContext : DbContext
 
     public virtual DbSet<Service> Services { get; set; }
 
-    public virtual DbSet<Stylist> Stylists { get; set; }
-
     public virtual DbSet<User> Users { get; set; }
 
     public virtual DbSet<Voucher> Vouchers { get; set; }
@@ -43,20 +41,26 @@ public partial class HarmonySalonContext : DbContext
     {
         modelBuilder.Entity<Appointment>(entity =>
         {
-            entity.HasKey(e => e.AppointmentId).HasName("PK__Appointm__8ECDFCC23F69601F");
+            entity.HasKey(e => e.AppointmentId).HasName("PK__Appointm__8ECDFCC2785B5EF8");
 
             entity.ToTable("Appointment");
 
             entity.Property(e => e.AppointmentDate).HasMaxLength(50);
-            entity.Property(e => e.Status).HasMaxLength(50);
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValue("Waiting");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.AppointmentCustomers)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK__Appointme__Custo__0C85DE4D");
 
             entity.HasOne(d => d.Service).WithMany(p => p.Appointments)
                 .HasForeignKey(d => d.ServiceId)
-                .HasConstraintName("FK__Appointme__Servi__75A278F5");
+                .HasConstraintName("FK__Appointme__Servi__0B91BA14");
 
-            entity.HasOne(d => d.Stylist).WithMany(p => p.Appointments)
+            entity.HasOne(d => d.Stylist).WithMany(p => p.AppointmentStylists)
                 .HasForeignKey(d => d.StylistId)
-                .HasConstraintName("FK__Appointme__Styli__74AE54BC");
+                .HasConstraintName("FK__Appointme__Styli__0A9D95DB");
         });
 
         modelBuilder.Entity<Cart>(entity =>
@@ -138,22 +142,6 @@ public partial class HarmonySalonContext : DbContext
             entity.Property(e => e.Description).HasMaxLength(255);
             entity.Property(e => e.Name).HasMaxLength(100);
             entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
-        });
-
-        modelBuilder.Entity<Stylist>(entity =>
-        {
-            entity.HasKey(e => e.StylistId).HasName("PK__Stylist__A822EA213AD4A1A7");
-
-            entity.ToTable("Stylist");
-
-            entity.Property(e => e.StylistId).ValueGeneratedNever();
-            entity.Property(e => e.Availability).HasMaxLength(200);
-            entity.Property(e => e.SkillLevel).HasMaxLength(50);
-
-            entity.HasOne(d => d.StylistNavigation).WithOne(p => p.Stylist)
-                .HasForeignKey<Stylist>(d => d.StylistId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Stylist__Stylist__4222D4EF");
         });
 
         modelBuilder.Entity<User>(entity =>
