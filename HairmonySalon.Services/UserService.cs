@@ -1,12 +1,11 @@
 ﻿using Harmony.Repositories.Interfaces;
 using Harmony.Services.Interfaces;
-using HarmonySalon.Reponsitories.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Harmony.Repositories.Entities;
 namespace Harmony.Services
 {
 	public class UserService : IUserService
