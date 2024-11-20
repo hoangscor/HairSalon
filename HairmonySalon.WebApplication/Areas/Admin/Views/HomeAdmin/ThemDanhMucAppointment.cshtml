@@ -1,0 +1,73 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Harmony.Repositories.Entities.Appointment
+
+@{
+    ViewData["Title"] = "ThemDanhMucAppointment";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Hãy Thêm Mới Appointment</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ThemDanhMucAppointment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Customer</label>
+                <select class="form-control" asp-for="CustomerId">
+                    <option value="" selected>Select Customer</option>
+                    @foreach(var customer in ViewBag.list_customer)
+                    {
+                        <option value="@customer.UserId">@customer.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Stylist</label>
+                <select class="form-control" asp-for="StylistId">
+                    <option value="" selected>Select Stylist</option>
+                    @foreach (var stylist in ViewBag.list_stylist)
+                    {
+                        <option value="@stylist.UserId">@stylist.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Service</label>
+                <select class="form-control" asp-for="ServiceId">
+                    <option value="" selected>Select Service</option>
+                    @foreach (var service in ViewBag.list_service)
+                    {
+                        <option value="@service.ServiceId">@service.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Registration Date </label>
+                <input class="form-control" asp-for="AppointmentDate" type="datetime-local"/>
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Status</label>
+                <select class="form-control" asp-for="Status">
+                    <option value="Waiting" selected>Waiting</option>
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Finished">Finished</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
