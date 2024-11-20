@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Harmony.Repositories.Entities;
-using HarmonySalon.Reponsitories.Entities;
 namespace HairHarmonySalon.Controllers
 {
     public class AccessController : AppController
@@ -33,6 +32,9 @@ namespace HairHarmonySalon.Controllers
 
                     var role = u.UserType.ToString();
                     HttpContext.Session.SetString("Role", role);
+
+                    var user_id = u.UserId.ToString();
+                    HttpContext.Session.SetString("UserId", user_id);
 
 
                     return RedirectToAction("Index", "Home");
