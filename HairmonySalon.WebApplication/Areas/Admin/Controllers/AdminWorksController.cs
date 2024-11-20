@@ -1,4 +1,4 @@
-﻿using HarmonySalon.Reponsitories.Entities;
+﻿/*using HarmonySalon.Reponsitories.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -128,3 +128,4 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
 
 }
 }
+*/
