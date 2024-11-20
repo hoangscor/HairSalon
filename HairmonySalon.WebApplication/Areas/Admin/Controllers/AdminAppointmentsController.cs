@@ -1,4 +1,4 @@
-﻿using HarmonySalon.Reponsitories.Entities;
+﻿/*using Harmony.Repositories.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +19,6 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
             public async Task<IActionResult> Index()
             {
                 var appointments = _context.Appointments
-                    .Include(a => a.Customer)
                     .Include(a => a.Stylist)
                     .Include(a => a.Service)
                     .ToListAsync();
@@ -35,7 +34,6 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
                 }
 
                 var appointment = await _context.Appointments
-                    .Include(a => a.Customer)
                     .Include(a => a.Stylist)
                     .Include(a => a.Service)
                     .FirstOrDefaultAsync(m => m.AppointmentId == id);
@@ -57,7 +55,6 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
                     {
                         title = a.Service.Name,  // Assuming Service has a Name property
                         start = a.AppointmentDate,
-                        end = a.AppointmentDate.AddHours(1), // Assuming 1 hour duration for now
                         id = a.AppointmentId
                     })
                     .ToListAsync();
@@ -86,7 +83,6 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
-                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName", appointment.CustomerId);
                 ViewData["StylistId"] = new SelectList(_context.Stylists, "StylistId", "FullName", appointment.StylistId);
                 ViewData["ServiceId"] = new SelectList(_context.Services, "ServiceId", "Name", appointment.ServiceId);
                 return View(appointment);
@@ -106,7 +102,6 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
                     return NotFound();
                 }
 
-                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName", appointment.CustomerId);
                 ViewData["StylistId"] = new SelectList(_context.Stylists, "StylistId", "FullName", appointment.StylistId);
                 ViewData["ServiceId"] = new SelectList(_context.Services, "ServiceId", "Name", appointment.ServiceId);
                 return View(appointment);
@@ -142,7 +137,6 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
                     }
                     return RedirectToAction(nameof(Index));
                 }
-                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName", appointment.CustomerId);
                 ViewData["StylistId"] = new SelectList(_context.Stylists, "StylistId", "FullName", appointment.StylistId);
                 ViewData["ServiceId"] = new SelectList(_context.Services, "ServiceId", "Name", appointment.ServiceId);
                 return View(appointment);
@@ -157,7 +151,6 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
                 }
 
                 var appointment = await _context.Appointments
-                    .Include(a => a.Customer)
                     .Include(a => a.Stylist)
                     .Include(a => a.Service)
                     .FirstOrDefaultAsync(m => m.AppointmentId == id);
@@ -191,3 +184,4 @@ namespace HairHarmonySalon.Areas.Admin.Controllers
         }
     }
 
+*/
